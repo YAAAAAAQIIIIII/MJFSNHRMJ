@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container d-flex justify-content-center align-items-center">
+            <span class="text-dark h1">恐龍</span> <span class="text-primary h1">介紹</span>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 my-3" id="card-container">
+    </div>
+
+    <div class="bg-light text-center mt-3">
+        <div class="py-3">竹山高中 - 應用資訊社</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var img_urls = [
+            "https://i.imgur.com/rqCwrFl.jpg",
+            "https://i.imgur.com/yPsrSav.jpg",
+            "https://i.imgur.com/tcPjDUx.jpg",
+            "https://i.imgur.com/HSHjIb2.jpg",
+            "https://i.imgur.com/vzbUcnS.jpg",
+        ]
+         var img_headers = [
+            "暴龍 Tyrannosaurus Rex（T-Rex）",
+            "迅猛龍 Velociraptor",
+            "三角龍 Triceratops",
+            "腕龍 Brachiosaurus",
+            "劍龍 Stegosaurus",
+        ]
+        var text_contents = [
+            "暴龍（屬名：Tyrannosaurus），是大型獸腳類恐龍，模式種為君王暴龍（種名：Tyrannosaurus rex）又稱霸王龍（意「暴君蜥蜴」），是暴龍科獸腳類恐龍的種，而「rex」拉丁語解國王，是有代表性的大型獸腳類恐龍。君王暴龍遍佈於現今的北美洲，當時是叫拉臘米迪亞的島嶼型大陸。君王暴龍分佈範圍比其他暴龍科成員廣。其化石在白堊紀晚期馬斯垂克階（約6800至6600萬年前）的各地層發現。君王暴龍是已知在白堊紀﹣古近紀滅絕事件前最後的暴龍科成員及非鳥恐龍，暴龍除了體長輸給棘龍跟比南方巨獸龍略長外，暴龍是體重最重和身高最高的肉食恐龍。",
+            "迅猛龍，又譯伶盜龍、速龍，在拉丁文意為“敏捷的盜賊”，是一種蜥臀目獸腳亞目馳龍科恐龍，大約生活於8300萬至7000萬年前的晚白堊紀。迅猛龍的模式種為蒙古迅猛龍（V. mongoliensis），也是唯一確定的已知種。迅猛龍由著名古生物學家奧斯本於1924年在蒙古發現，這是第一種亞洲馳龍類。其他馳龍類皆在北美洲發現。",
+            "三角龍屬（屬名：Triceratops），通稱三角龍、三觭龍，是鳥臀目角龍下目角龍科的一屬，是種植食性恐龍，牠們有非常大的頭盾，以及三根角狀物，其中眼窩上的兩根觭角非常之長，嘴巴有像鸚鵡一樣的喙。化石發現於約6800萬年前到6500萬年前白堊紀的晚馬斯垂克階地獄溪組，在美國發現的化石尤其多，在加拿大、墨西哥也有大量出土。三角龍也是最著名、最常出現的植食恐龍之一，也是美國恐龍的第二代表（第一位是暴龍），在通俗文化中非常受歡迎，和暴龍、甲龍、腫頭龍以及愛德蒙托龍生活在同一個地質年代。",
+            "腕龍（屬名：Brachiosaurus）是蜥腳類恐龍的一個屬，生存於大約1.54億至1.5億年前晚侏羅世的北美洲。模式種兼唯一種是高胸腕龍（Brachiosaurus altithorax），由美國古生物學家埃爾默·里格斯（Elmer S. Riggs）於1903年根據美國科羅拉多西部科羅拉多河谷中發現的化石所描述。屬名在希臘語中意為「上臂蜥蜴」，指腕龍成比例延長的前肢；種名意為「寬闊的胸腔」。腕龍體長估計在18～21米（59～69英尺）之間，體重估計在28.3～58公噸（31.2～64短噸）之間，擁有不成比例的長頸、小頭和巨型尺寸――所有這些皆為蜥腳類典型特徵，而不同之處在於前肢長於後肢，導致軀幹傾斜，尾巴也相應縮短。",
+            "劍龍（屬名：Stegosaurus，意為「屋頂蜥蜴」）是植食性裝甲類恐龍的一個屬，生存於距今1.55億至1.5億年的晚侏羅世啟莫里階至提通階，化石產自美國西部和葡萄牙，目前已有80多件殘骸被發現。本屬含有3個公認物種，分別為狹臉劍龍（S. stenops）、蹄足劍龍（S. ungulatus）和溝紋劍龍（S. sulcatus），三者皆生存於莫里遜組。劍龍與雷龍、梁龍、腕龍、異特龍和角鼻龍共享棲息地，後兩者可能會捕食劍龍。",
+        ]
+
+        $(document).ready(function() {
+            if (img_urls.length !== img_headers.length || img_headers.length != text_contents.length) {
+                alert("圖片、標題、內文的個數不符");
+                return;
+            }
+
+            var card_container = $("#card-container");
+            for (let i = 0; i < img_urls.length; i++) {
+                var img = img_urls[i];
+                var header = img_headers[i]
+                var content = text_contents[i]
+                var element = $($.parseHTML(`
+                    <div class="col">
+                        <div class="card">
+                            <img src="${img}" class="card-img-top" alt="img alt ${i}">
+                            <div class="card-body">
+                            <h5 class="card-title" id="test111">${header}</h5>
+                            <p class="card-text">${content}</p>
+                            </div>
+                        </div>
+                    </div>
+                `));
+                card_container.append(element);
+            }
+        })
+
+    </script>
+</body>
+
+</html>
